@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Header from './components/header'
 import initialEmails from './data/emails'
 
@@ -5,6 +6,32 @@ import './styles/App.css'
 
 function App() {
   // Use initialEmails for state
+  const [newEmail, setNewEmail] = useState(initialEmails)
+  const newEmailRendered = 
+  newEmail.map((email, index) => {
+    return (<li key={index}>
+      <div className="select">
+        <input
+          type="checkbox"
+          className='select-checkbox'
+          checked={email}/>
+          </div>
+        <div className="star">
+          <input
+            type="checkbox"
+            className='star-checkbox'
+            checked={email.starred} />
+          </div>
+          <div className="sender">{email.sender}</div>
+          <div className="title">{email.title}</div>
+          </li>)
+  })
+
+
+
+
+
+
   console.log(initialEmails)
 
   return (
@@ -28,7 +55,7 @@ function App() {
           </li>
 
           <li className="item toggle">
-            <label for="hide-read">Hide read</label>
+            <label htmlFor="hide-read">Hide read</label>
             <input
               id="hide-read"
               type="checkbox"
@@ -38,7 +65,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">{/* Render a list of emails here */}</main>
+      <main className=" = ">{newEmailRendered}</main>
     </div>
   )
 }
