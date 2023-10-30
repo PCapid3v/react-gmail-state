@@ -26,8 +26,8 @@ function App() {
           <div className="title">{email.title}</div>
           </li>)
   })
-
-
+const isRead = newEmail.filter(email => email.read)
+const isStarred = newEmail.filter(email => email.starred)
 
 
 
@@ -44,14 +44,14 @@ function App() {
             // onClick={() => {}}
           >
             <span className="label">Inbox</span>
-            <span className="count">?</span>
+            <span className="count">{isRead.length}</span>
           </li>
           <li
             className="item"
             // onClick={() => {}}
           >
             <span className="label">Starred</span>
-            <span className="count">?</span>
+            <span className="count">{isStarred.length}</span>
           </li>
 
           <li className="item toggle">
